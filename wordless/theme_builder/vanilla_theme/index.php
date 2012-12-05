@@ -24,9 +24,11 @@ if (!class_exists("Wordless")) {
 if (is_single()) {
   render_view("posts/single");
 }
-elseif (is_404()) {
-  include 'theme/views/404.html';
-}
-else {
+#elseif (is_404()) {
+#  include 'theme/views/404.html';
+#}
+else if (is_archive()) {
   render_view("posts/archive");
+} else {
+  render_view("posts/404");
 }
